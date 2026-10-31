@@ -1,0 +1,173 @@
+{
+  "title": "Incorporación de proveedores de datos e IA",
+  "summary": "Guía de capacitación: doce acciones agrupadas en tres actividades. Caso ficticio para revisar el diseño de los entregables.",
+  "groups": [
+    {
+      "id": "G01",
+      "title": "El expediente reúne cuatro datos antes de la revisión",
+      "objective": "El solicitante deja la información mínima para evaluar al proveedor.",
+      "steps": [
+        "Registrar el propósito y el caso de uso.",
+        "Clasificar las categorías de datos previstas.",
+        "Identificar al dueño del dato y al responsable de IA.",
+        "Adjuntar la evidencia y enviar el expediente."
+      ],
+      "dynamic_fields": [
+        "Nombre del proveedor",
+        "Fecha",
+        "Identificador del expediente"
+      ],
+      "start": 0.0,
+      "end": 900.0,
+      "evidence_ids": [
+        "F1",
+        "T1"
+      ],
+      "origin_ids": [
+        "G01"
+      ],
+      "frame_id": "F1",
+      "annotations": [
+        {
+          "step_index": 0,
+          "x": 0.28,
+          "y": 0.2,
+          "width": 0.67,
+          "height": 0.13
+        },
+        {
+          "step_index": 1,
+          "x": 0.28,
+          "y": 0.37,
+          "width": 0.67,
+          "height": 0.13
+        },
+        {
+          "step_index": 2,
+          "x": 0.28,
+          "y": 0.54,
+          "width": 0.67,
+          "height": 0.13
+        },
+        {
+          "step_index": 3,
+          "x": 0.28,
+          "y": 0.71,
+          "width": 0.67,
+          "height": 0.13
+        }
+      ]
+    },
+    {
+      "id": "G02",
+      "title": "La aprobación depende de evidencia y condiciones explícitas",
+      "objective": "Los responsables resuelven la solicitud y registran sus restricciones.",
+      "steps": [
+        "El dueño del dato valida acceso y conservación.",
+        "El responsable de IA revisa pruebas y supervisión.",
+        "Si falta evidencia, devolver el expediente para corrección.",
+        "Registrar la decisión, sus condiciones y el aprobador."
+      ],
+      "dynamic_fields": [
+        "Aprobador",
+        "Estado de la solicitud"
+      ],
+      "start": 900.0,
+      "end": 1800.0,
+      "evidence_ids": [
+        "F2",
+        "T2"
+      ],
+      "origin_ids": [
+        "G02"
+      ],
+      "frame_id": "F2",
+      "annotations": [
+        {
+          "step_index": 0,
+          "x": 0.28,
+          "y": 0.2,
+          "width": 0.67,
+          "height": 0.13
+        },
+        {
+          "step_index": 1,
+          "x": 0.28,
+          "y": 0.37,
+          "width": 0.67,
+          "height": 0.13
+        },
+        {
+          "step_index": 2,
+          "x": 0.28,
+          "y": 0.54,
+          "width": 0.67,
+          "height": 0.13
+        },
+        {
+          "step_index": 3,
+          "x": 0.28,
+          "y": 0.71,
+          "width": 0.67,
+          "height": 0.13
+        }
+      ]
+    },
+    {
+      "id": "G03",
+      "title": "Los cambios materiales requieren una nueva revisión",
+      "objective": "Compras mantiene el seguimiento después del alta del proveedor.",
+      "steps": [
+        "Registrar la fecha y condiciones de la siguiente revisión.",
+        "Reevaluar cambios de finalidad, datos o modelo de IA.",
+        "Documentar excepciones con autoridad, riesgo y vencimiento.",
+        "Revisar resultados del piloto antes de ampliar el proceso."
+      ],
+      "dynamic_fields": [
+        "Fecha de revisión",
+        "Vencimiento de la excepción"
+      ],
+      "start": 1800.0,
+      "end": 2700.0,
+      "evidence_ids": [
+        "F3",
+        "T3"
+      ],
+      "origin_ids": [
+        "G03"
+      ],
+      "frame_id": "F3",
+      "annotations": [
+        {
+          "step_index": 0,
+          "x": 0.28,
+          "y": 0.2,
+          "width": 0.67,
+          "height": 0.13
+        },
+        {
+          "step_index": 1,
+          "x": 0.28,
+          "y": 0.37,
+          "width": 0.67,
+          "height": 0.13
+        },
+        {
+          "step_index": 2,
+          "x": 0.28,
+          "y": 0.54,
+          "width": 0.67,
+          "height": 0.13
+        },
+        {
+          "step_index": 3,
+          "x": 0.28,
+          "y": 0.71,
+          "width": 0.67,
+          "height": 0.13
+        }
+      ]
+    }
+  ],
+  "exclusions": []
+}

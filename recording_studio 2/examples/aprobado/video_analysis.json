@@ -1,0 +1,9 @@
+{
+  "mode": "demo",
+  "simulated": true,
+  "slides_with_cover": 4,
+  "groups": 3,
+  "steps": 12,
+  "annotated_steps": 12,
+  "note": "Capturas ficticias y coordenadas conocidas; no se analizó una grabación real."
+}

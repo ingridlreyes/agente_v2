@@ -1,0 +1,156 @@
+{
+  "title": "Evaluación del proceso de proveedores",
+  "questions": [
+    {
+      "id": "Q01",
+      "question": "¿Qué debe registrar el solicitante sobre el uso del proveedor?",
+      "options": [
+        "El propósito y el caso de uso",
+        "Solo el nombre comercial",
+        "Únicamente el presupuesto",
+        "La contraseña del sistema"
+      ],
+      "correct_index": 0,
+      "explanation": "El propósito y el caso de uso. Este criterio aparece en la actividad G01 de la guía de ejemplo.",
+      "evidence_ids": [
+        "G01"
+      ]
+    },
+    {
+      "id": "Q02",
+      "question": "¿Qué información debe clasificarse en el expediente?",
+      "options": [
+        "El color del logo",
+        "Las categorías de datos previstas",
+        "La antigüedad del aprobador",
+        "El número de diapositivas"
+      ],
+      "correct_index": 1,
+      "explanation": "Las categorías de datos previstas. Este criterio aparece en la actividad G01 de la guía de ejemplo.",
+      "evidence_ids": [
+        "G01"
+      ]
+    },
+    {
+      "id": "Q03",
+      "question": "¿A quién debe identificar el solicitante para la revisión?",
+      "options": [
+        "Solo al proveedor",
+        "A cualquier usuario disponible",
+        "Al dueño del dato y al responsable de IA",
+        "Solo al diseñador del formato"
+      ],
+      "correct_index": 2,
+      "explanation": "Al dueño del dato y al responsable de IA. Este criterio aparece en la actividad G01 de la guía de ejemplo.",
+      "evidence_ids": [
+        "G01"
+      ]
+    },
+    {
+      "id": "Q04",
+      "question": "¿Qué se hace con la evidencia antes de enviar el expediente?",
+      "options": [
+        "Eliminarla para ahorrar espacio",
+        "Suponer que existe",
+        "Sustituirla por el logo",
+        "Adjuntarla a la solicitud"
+      ],
+      "correct_index": 3,
+      "explanation": "Adjuntarla a la solicitud. Este criterio aparece en la actividad G01 de la guía de ejemplo.",
+      "evidence_ids": [
+        "G01"
+      ]
+    },
+    {
+      "id": "Q05",
+      "question": "¿Qué condiciones valida el dueño del dato?",
+      "options": [
+        "Acceso y conservación de los datos",
+        "La animación de la presentación",
+        "El orden alfabético de usuarios",
+        "El precio de las licencias de Office"
+      ],
+      "correct_index": 0,
+      "explanation": "Acceso y conservación de los datos. Este criterio aparece en la actividad G02 de la guía de ejemplo.",
+      "evidence_ids": [
+        "G02"
+      ]
+    },
+    {
+      "id": "Q06",
+      "question": "¿Qué revisa el responsable de IA en este proceso?",
+      "options": [
+        "Solo el nombre del modelo",
+        "Las pruebas y la supervisión del servicio",
+        "Únicamente la firma del proveedor",
+        "La paleta de colores"
+      ],
+      "correct_index": 1,
+      "explanation": "Las pruebas y la supervisión del servicio. Este criterio aparece en la actividad G02 de la guía de ejemplo.",
+      "evidence_ids": [
+        "G02"
+      ]
+    },
+    {
+      "id": "Q07",
+      "question": "Falta evidencia obligatoria. ¿Qué corresponde hacer?",
+      "options": [
+        "Aprobar automáticamente",
+        "Omitir el control",
+        "Devolver el expediente para corrección",
+        "Inventar una fecha de aprobación"
+      ],
+      "correct_index": 2,
+      "explanation": "Devolver el expediente para corrección. Este criterio aparece en la actividad G02 de la guía de ejemplo.",
+      "evidence_ids": [
+        "G02"
+      ]
+    },
+    {
+      "id": "Q08",
+      "question": "¿Qué debe quedar registrado al resolver la solicitud?",
+      "options": [
+        "Solo el estado final",
+        "Solo el nombre del archivo",
+        "Una captura sin contexto",
+        "Decisión, condiciones y aprobador"
+      ],
+      "correct_index": 3,
+      "explanation": "Decisión, condiciones y aprobador. Este criterio aparece en la actividad G02 de la guía de ejemplo.",
+      "evidence_ids": [
+        "G02"
+      ]
+    },
+    {
+      "id": "Q09",
+      "question": "El proveedor cambia la finalidad o el modelo. ¿Qué procede?",
+      "options": [
+        "Reevaluar el cambio material",
+        "Esperar a que ocurra un incidente",
+        "Mantener siempre la aprobación anterior",
+        "Cambiar únicamente el título del expediente"
+      ],
+      "correct_index": 0,
+      "explanation": "Reevaluar el cambio material. Este criterio aparece en la actividad G03 de la guía de ejemplo.",
+      "evidence_ids": [
+        "G03"
+      ]
+    },
+    {
+      "id": "Q10",
+      "question": "¿Qué debe contener una excepción documentada?",
+      "options": [
+        "Solo una nota informal",
+        "Autoridad, riesgo y vencimiento",
+        "Una aprobación sin responsable",
+        "Un estado sin fecha ni condiciones"
+      ],
+      "correct_index": 1,
+      "explanation": "Autoridad, riesgo y vencimiento. Este criterio aparece en la actividad G03 de la guía de ejemplo.",
+      "evidence_ids": [
+        "G03"
+      ]
+    }
+  ],
+  "generation": "demo"
+}
