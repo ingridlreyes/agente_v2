@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Governance Studio</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<aside>
+  <div class="brand"><span class="mark">G</span><div>Governance<br><strong>Studio</strong></div></div>
+  <p class="overline">ESPACIO DE CONSULTORÍA</p>
+  <button id="new" class="primary">Nueva conversación</button>
+  <button id="settings" class="mobile-settings" aria-expanded="false">Marca y conexión</button>
+  <div id="sessions" class="sessions"></div>
+  <section><h2>Identidad del cliente</h2><label>Organización<input id="client" value="Cliente" maxlength="100"></label><div class="colors"><label>Principal<input id="primary" type="color" value="#142d4e"></label><label>Acento<input id="accent" type="color" value="#007f78"></label></div><label class="upload">Subir logo<input id="logo" type="file" accept="image/png,image/jpeg"></label><button id="theme">Aplicar identidad</button><p class="small">La marca se aplica a los siguientes archivos. Para cambiar uno existente, pide una nueva versión.</p></section>
+  <section><h2>Conexión</h2><label>Token de acceso<input id="token" type="password" autocomplete="off" placeholder="Solo para conexión corporativa"></label><button id="connect">Conectar</button><span id="mode" class="small"></span></section>
+</aside>
+<main>
+  <header><div><p class="overline">GOBIERNO DE DATOS E INTELIGENCIA ARTIFICIAL</p><h1>Una conversación. Evidencia que se puede usar.</h1></div><span id="status">Iniciando</span></header>
+  <div id="demo" class="notice" hidden>Demostración local sin modelo conectado. Las consultas muestran contexto recuperado y los archivos usan un caso ficticio fijo. Conecta Azure para interpretar peticiones y revisiones libres.</div>
+  <div class="workspace"><div class="conversation">
+    <div id="messages" aria-live="polite"><article class="welcome"><p class="overline">DE LA PREGUNTA A LA DECISIÓN</p><h2>El criterio queda conectado con la ejecución.</h2><p>Consulta tus fuentes o prepara entregables con riesgos, responsables, controles y acciones relacionados entre sí.</p><div class="examples"><button data-prompt="¿Qué diferencia hay entre gobierno de datos y gobierno de inteligencia artificial?">Aclarar un concepto</button><button data-prompt="Genera Word, PowerPoint y Excel para un proceso de incorporación de proveedores de datos e IA con diagrama de carriles, riesgos, controles y plan de implementación.">Preparar un caso completo</button></div></article></div>
+    <div class="composer"><div class="attachbar"><label class="upload">Adjuntar contexto<input id="attachment" type="file" accept=".txt,.md,.csv,.pdf,.docx,.pptx,.xlsx"></label><span id="attachment-status" class="small"></span></div><form id="chat"><label for="message" class="sr-only">Mensaje</label><textarea id="message" placeholder="Explica qué necesitas y para quién…" rows="3" required maxlength="12000"></textarea><div class="sendrow"><span>Fuentes con permisos · Versiones · Archivos editables</span><button class="primary" id="send" type="submit">Enviar</button></div></form></div>
+  </div><section class="deliverables"><p class="overline">ENTREGABLES</p><h2>Decisiones y archivos</h2><p class="small">Los archivos conservan una estructura común para mantener su trazabilidad.</p><div id="jobs"></div><div id="artifacts"><p class="empty">Tus documentos aparecerán aquí.</p></div><details><summary>Memoria de la conversación</summary><pre id="memory">Sin contexto guardado</pre></details></section></div>
+</main><div id="toast" role="alert" hidden></div>
+</body></html>

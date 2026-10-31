@@ -1,0 +1,85 @@
+"""Simulador determinista, EXCLUSIVO para probar infraestructura sin credenciales."""
+from copy import deepcopy
+import re
+from .models import Route, Answer, Artifact, Memory
+
+
+def sample():
+    """Caso ficticio completo. No presenta métricas simuladas como mediciones de cliente."""
+    return Artifact.model_validate({
+        "title":"Gobierno de proveedores de datos e inteligencia artificial",
+        "objective":"Proponer un proceso de incorporación y seguimiento de proveedores que utilicen datos o servicios de inteligencia artificial.",
+        "audience":"Comité de datos e inteligencia artificial",
+        "executive_summary":"Se propone condicionar el alta de proveedores a un expediente de datos, una evaluación del uso de IA y una aprobación con responsables identificados. El diseño concentra la decisión en el riesgo del caso de uso y conserva evidencia para revisar cambios, incidentes y renovaciones. El ejemplo no representa un diagnóstico de una organización real.",
+        "decision":"Aprobar un piloto del proceso con Compras, el dueño del dato y el responsable de IA. Ratificar responsables y criterios antes de ponerlo en operación.",
+        "theme":{"client":"Organización de ejemplo","primary":"#142D4E","accent":"#007F78","font":"Arial","logo_id":None},
+        "assumptions":["Caso ficticio para demostrar el agente. No hay resultados de entrevistas ni mediciones del cliente.","Los responsables y horizontes son propuestas pendientes de ratificación.","La evaluación jurídica depende de jurisdicción, contrato y uso concreto. Este diseño no acredita cumplimiento."],
+        "sections":[
+            {"id":"alcance","heading":"Alcance y criterios de entrada","paragraphs":["El proceso comienza cuando un área solicita contratar, renovar o modificar un servicio que trate datos o incorpore IA. Compras registra el propósito, las categorías de datos, los accesos previstos y el uso de los resultados del sistema.","El dueño del dato confirma si la solicitud utiliza información bajo su responsabilidad. El responsable de IA determina si el servicio emplea un modelo y cuál es el impacto potencial de sus decisiones. La falta de información devuelve el expediente al solicitante."],"bullets":["Entradas: solicitud, descripción del servicio, datos previstos y condiciones del proveedor.","Salidas: expediente aprobado, condiciones de uso, controles, responsables y registro de excepciones."],"source_ids":[]},
+            {"id":"evaluacion","heading":"Evaluación y decisión","paragraphs":["La revisión examina el propósito, la necesidad de cada dato, su procedencia, las restricciones de uso y las posibilidades de reutilización por el proveedor. Para servicios de IA incluye evaluación antes de uso, supervisión humana, monitoreo y condiciones de salida.","La función de aprobación valida que cada riesgo relevante tenga un responsable y un control verificable. Una condición pendiente debe tener dueño, horizonte y criterio de cierre. Un cambio material de datos, modelo, subcontratista o finalidad dispara una nueva revisión."],"bullets":["Una aprobación condicionada especifica qué usos quedan permitidos y cuáles permanecen suspendidos.","El rechazo registra la causa y las condiciones que permitirían volver a presentar la solicitud."],"source_ids":[]},
+            {"id":"operacion","heading":"Seguimiento y excepciones","paragraphs":["Compras vincula las condiciones aprobadas con el contrato y la renovación. El dueño del dato verifica los accesos y el responsable de IA revisa los indicadores del caso de uso. Una desviación puede requerir corrección, restricción temporal o suspensión según el impacto.","Las excepciones deben identificar la condición incumplida, el riesgo aceptado, la autoridad que decide y una fecha de revisión. Ninguna excepción permanente se presume aprobada por falta de respuesta."],"bullets":[],"source_ids":[]},
+            {"id":"piloto","heading":"Piloto y criterio de salida","paragraphs":["El piloto utiliza un conjunto de proveedores seleccionado por los responsables del cliente. Se registra el tiempo de revisión, la completitud de los expedientes y la utilidad de los controles. El comité ajusta el diseño antes de extenderlo.","La salida del piloto requiere expedientes revisados, evidencia accesible, responsables ratificados y una decisión documentada sobre los cambios al proceso. El tamaño de la muestra y los umbrales se acuerdan antes de comenzar."],"bullets":[],"source_ids":[]}],
+        "findings":[{"id":"H01","statement":"El diseño requiere un expediente común que conecte contratación, datos y uso de IA.","kind":"recommendation","source_ids":[],"implication":"La aprobación debe poder rastrearse hasta el riesgo, el responsable y la evidencia esperada."},
+                    {"id":"H02","statement":"No se dispone de un inventario ni de una línea base de expedientes del cliente.","kind":"assumption","source_ids":[],"implication":"Los indicadores permanecen sin resultado hasta capturar mediciones válidas."}],
+        "risks":[
+            {"id":"R01","title":"Uso de datos fuera de propósito","cause":"Alcance contractual o técnico impreciso","consequence":"Exposición o reutilización no prevista de datos","owner":"Dueño del dato","probability":None,"impact":None,"source_ids":[]},
+            {"id":"R02","title":"Resultados de IA sin evaluación","cause":"Ausencia de pruebas antes de uso y de supervisión definida","consequence":"Decisiones incorrectas o trato inadecuado a personas afectadas","owner":"Responsable de IA","probability":None,"impact":None,"source_ids":[]},
+            {"id":"R03","title":"Cambios del proveedor sin revisión","cause":"No existe una condición de reevaluación","consequence":"Controles que dejan de cubrir el servicio real","owner":"Compras","probability":None,"impact":None,"source_ids":[]}],
+        "controls":[
+            {"id":"C01","risk_ids":["R01"],"activity":"Validar propósito y condiciones de tratamiento","owner":"Dueño del dato","frequency":"Antes del alta y ante cambios materiales","evidence":"Expediente y condiciones de tratamiento aprobados","acceptance":"Cada categoría de datos tiene propósito, acceso y conservación definidos","status":"Propuesto"},
+            {"id":"C02","risk_ids":["R02"],"activity":"Evaluar el sistema y definir supervisión humana","owner":"Responsable de IA","frequency":"Antes del uso y según el riesgo del caso","evidence":"Resultados de pruebas y protocolo de intervención","acceptance":"Criterios de desempeño y rutas de escalamiento aprobados antes de uso","status":"Propuesto"},
+            {"id":"C03","risk_ids":["R03"],"activity":"Reevaluar cambios de servicio y renovaciones","owner":"Compras","frequency":"Ante cambio material o renovación","evidence":"Notificación de cambio y decisión de reevaluación","acceptance":"Todo cambio material tiene decisión registrada antes de su adopción","status":"Propuesto"}],
+        "actions":[
+            {"id":"A01","control_ids":["C01"],"action":"Acordar el expediente mínimo y ratificar al dueño del dato","owner":"Oficina de datos","horizon":"Primer mes propuesto","acceptance":"Formato y responsables aprobados","status":"Pendiente"},
+            {"id":"A02","control_ids":["C02"],"action":"Definir pruebas y supervisión por caso de uso","owner":"Responsable de IA","horizon":"Segundo mes propuesto","acceptance":"Protocolo de evaluación aprobado y aplicado en el piloto","status":"Pendiente"},
+            {"id":"A03","control_ids":["C03"],"action":"Incorporar reevaluación en contratación y renovación","owner":"Compras","horizon":"Tercer mes propuesto","acceptance":"El piloto registra una ruta de cambio y una decisión de renovación","status":"Pendiente"}],
+        "kpis":[
+            {"id":"K01","name":"Expedientes completos","definition":"Expedientes con todos los campos y evidencias obligatorios entre expedientes revisados en el período.","numerator":None,"denominator":None,"target":None,"unit":"ratio","owner":"Compras","source_ids":[]},
+            {"id":"K02","name":"Usos de IA evaluados","definition":"Usos con evaluación previa aprobada entre usos de IA sujetos a revisión en el período.","numerator":None,"denominator":None,"target":None,"unit":"ratio","owner":"Responsable de IA","source_ids":[]}],
+        "process":{"title":"Incorporación y revisión de proveedores","lanes":["Área solicitante","Compras","Dueño del dato","Responsable de IA"],
+                   "nodes":[{"id":"N1","lane":"Área solicitante","label":"Registrar solicitud","kind":"start"},
+                            {"id":"N2","lane":"Compras","label":"Integrar expediente","kind":"activity"},
+                            {"id":"N3","lane":"Dueño del dato","label":"Validar condiciones de datos","kind":"activity"},
+                            {"id":"N4","lane":"Responsable de IA","label":"Aprobar evaluación","kind":"decision"},
+                            {"id":"N5","lane":"Compras","label":"Formalizar alta y seguimiento","kind":"end"}],
+                   "edges":[{"source":"N1","target":"N2","label":"Solicitud"},{"source":"N2","target":"N3","label":"Completo"},{"source":"N3","target":"N4","label":"Condiciones"},{"source":"N4","target":"N5","label":"Aprobado"},{"source":"N4","target":"N2","label":"Corregir"}]},
+        "slides":[
+            {"layout":"statement","title":"Decisión para el piloto","message":"La propuesta conecta la contratación con la responsabilidad sobre datos y uso de IA.","items":["Alcance: altas, renovaciones y cambios materiales de proveedores.","Decisión: ratificar responsables y criterios antes de operar el proceso.","Resultado esperado: una aprobación que pueda rastrearse hasta su evidencia."],"source_ids":[],"notes":"Caso ficticio. No constituye una evaluación del cliente."},
+            {"layout":"comparison","title":"Condiciones de aprobación","message":"El expediente debe explicar qué se permite y qué evidencia sostiene la decisión.","items":["Datos: propósito, categorías, accesos y conservación.","IA: uso, pruebas, supervisión y respuesta a incidentes.","Contrato: condiciones de tratamiento y notificación de cambios.","Decisión: responsable, restricciones y criterios de cierre."],"source_ids":[],"notes":"Los requisitos son propuestas del ejemplo y deben ajustarse al cliente."},
+            {"layout":"process","title":"Proceso de incorporación","message":"Cada actividad tiene un responsable y cada decisión conserva sus rutas.","items":[],"source_ids":[],"notes":"La ruta Corregir devuelve el expediente a Compras."},
+            {"layout":"risks","title":"Riesgos y controles propuestos","message":"El control debe producir evidencia verificable.","items":["R01 Uso fuera de propósito: validar condiciones de tratamiento.","R02 Resultados sin evaluar: pruebas previas y supervisión.","R03 Cambios sin revisar: reevaluación antes de adoptar el cambio."],"source_ids":[],"notes":"Sin valoraciones de probabilidad o impacto. Se requieren datos del cliente."},
+            {"layout":"roadmap","title":"Plan propuesto para el piloto","message":"El comité decide la extensión del proceso después de revisar los expedientes del piloto.","items":["Primer mes: expediente mínimo y responsables ratificados.","Segundo mes: evaluación y supervisión aplicadas al piloto.","Tercer mes: reevaluación integrada a compras y decisión de continuidad."],"source_ids":[],"notes":"Horizontes propuestos. No son compromisos de implementación."},
+            {"layout":"metrics","title":"Medición y decisión de continuidad","message":"La línea base se captura durante el piloto. Los resultados aún no están disponibles.","items":["Expedientes completos sobre expedientes revisados.","Usos de IA evaluados sobre usos sujetos a revisión.","El comité acuerda umbrales, muestra y acciones antes del inicio."],"source_ids":[],"notes":"El Excel conserva los valores en blanco hasta capturar numerador y denominador."}],
+        "source_ids":[]})
+
+
+class DemoModel:
+    def generate(self, schema, instructions, context, role="writer", images=None):
+        msg = context.get("message", "").lower()
+        if schema is Route:
+            relevant = bool(re.search(r"dato|\bia\b|inteligencia|gobierno|proveedor|política|politica|control|riesgo|calidad|linaje|catálogo|catalogo|modelo|documento|presentaci|excel|powerpoint|word|cambia|modifica|resume|resumen|hazlo|genera|hola", msg))
+            formats = context.get("requested_formats") or [fmt for word,fmt in (("word","docx"),("documento","docx"),("presentaci","pptx"),("powerpoint","pptx"),("excel","xlsx")) if word in msg]
+            if "tres" in msg or "todo" in msg:
+                formats = ["docx","pptx","xlsx"]
+            intent = "out_of_scope" if not relevant else "answer"
+            if relevant and re.search(r"genera|crea|hazme|elabora|prepara|hazlo",msg):
+                intent = "create"
+            if relevant and re.search(r"cambia|modifica|actualiza",msg):
+                intent = "revise"
+            versions = context.get("artifacts", [])
+            aid = context.get("artifact_id") or (versions[0]["artifact"] if versions else None)
+            result = Route(intent=intent,domain="both" if relevant else "outside",formats=list(dict.fromkeys(formats)),brief=context.get("message",""),artifact_id=aid)
+        elif schema is Answer:
+            memory = Memory.model_validate(context.get("memory", {}))
+            memory.facts = (memory.facts + ["Última consulta: " + context.get("message", "")[:250]])[-20:]
+            src = context.get("sources", [])
+            excerpt = "\n\n".join(f"[{s['id']}] {s['title']}: {s['text'][:700]}" for s in src[:3])
+            result = Answer(text="Modo demostración: no hay un modelo conectado. Esta respuesta solo muestra el contexto recuperado para probar permisos y memoria.\n\n" + (excerpt or "No se recuperaron fuentes para esta consulta. Configura Azure para recibir una respuesta especializada."),source_ids=[s["id"] for s in src[:3]],memory=memory)
+        elif schema is Artifact:
+            result = Artifact.model_validate(context["previous"]) if context.get("previous") else sample()
+            result.theme = __import__("governance_studio.models",fromlist=["Theme"]).Theme.model_validate(context.get("theme",result.theme.model_dump()))
+            if context.get("previous"):
+                raise ValueError("El simulador no interpreta revisiones libres. Usa edición estructurada o conecta Azure.")
+        else:
+            raise ValueError("Operación de demostración no soportada")
+        return result, {"deployment":"demo-deterministic", "usage":{},"simulated":True}

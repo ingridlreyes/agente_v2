@@ -1,0 +1,314 @@
+{
+  "title": "Seguimiento de calidad de datos por dominio",
+  "objective": "Demostrar un dashboard configurable con datos ficticios y una gráfica editable vinculada al mismo conjunto de datos.",
+  "audience": "Comité de datos e inteligencia artificial",
+  "executive_summary": "Se propone condicionar el alta de proveedores a un expediente de datos, una evaluación del uso de IA y una aprobación con responsables identificados. El diseño concentra la decisión en el riesgo del caso de uso y conserva evidencia para revisar cambios, incidentes y renovaciones. El ejemplo no representa un diagnóstico de una organización real.",
+  "decision": "Definir responsables y umbrales después de validar los registros de origen.",
+  "theme": {
+    "client": "Organización de ejemplo",
+    "primary": "#142D4E",
+    "accent": "#007F78",
+    "font": "Arial",
+    "logo_id": null
+  },
+  "assumptions": [
+    "Caso ficticio para demostrar el agente. No hay resultados de entrevistas ni mediciones del cliente.",
+    "Los responsables y horizontes son propuestas pendientes de ratificación.",
+    "La evaluación jurídica depende de jurisdicción, contrato y uso concreto. Este diseño no acredita cumplimiento."
+  ],
+  "sections": [
+    {
+      "id": "alcance",
+      "heading": "Alcance y criterios de entrada",
+      "paragraphs": [
+        "El proceso comienza cuando un área solicita contratar, renovar o modificar un servicio que trate datos o incorpore IA. Compras registra el propósito, las categorías de datos, los accesos previstos y el uso de los resultados del sistema.",
+        "El dueño del dato confirma si la solicitud utiliza información bajo su responsabilidad. El responsable de IA determina si el servicio emplea un modelo y cuál es el impacto potencial de sus decisiones. La falta de información devuelve el expediente al solicitante."
+      ],
+      "bullets": [
+        "Entradas: solicitud, descripción del servicio, datos previstos y condiciones del proveedor.",
+        "Salidas: expediente aprobado, condiciones de uso, controles, responsables y registro de excepciones."
+      ],
+      "source_ids": []
+    },
+    {
+      "id": "evaluacion",
+      "heading": "Evaluación y decisión",
+      "paragraphs": [
+        "La revisión examina el propósito, la necesidad de cada dato, su procedencia, las restricciones de uso y las posibilidades de reutilización por el proveedor. Para servicios de IA incluye evaluación antes de uso, supervisión humana, monitoreo y condiciones de salida.",
+        "La función de aprobación valida que cada riesgo relevante tenga un responsable y un control verificable. Una condición pendiente debe tener dueño, horizonte y criterio de cierre. Un cambio material de datos, modelo, subcontratista o finalidad dispara una nueva revisión."
+      ],
+      "bullets": [
+        "Una aprobación condicionada especifica qué usos quedan permitidos y cuáles permanecen suspendidos.",
+        "El rechazo registra la causa y las condiciones que permitirían volver a presentar la solicitud."
+      ],
+      "source_ids": []
+    },
+    {
+      "id": "operacion",
+      "heading": "Seguimiento y excepciones",
+      "paragraphs": [
+        "Compras vincula las condiciones aprobadas con el contrato y la renovación. El dueño del dato verifica los accesos y el responsable de IA revisa los indicadores del caso de uso. Una desviación puede requerir corrección, restricción temporal o suspensión según el impacto.",
+        "Las excepciones deben identificar la condición incumplida, el riesgo aceptado, la autoridad que decide y una fecha de revisión. Ninguna excepción permanente se presume aprobada por falta de respuesta."
+      ],
+      "bullets": [],
+      "source_ids": []
+    },
+    {
+      "id": "piloto",
+      "heading": "Piloto y criterio de salida",
+      "paragraphs": [
+        "El piloto utiliza un conjunto de proveedores seleccionado por los responsables del cliente. Se registra el tiempo de revisión, la completitud de los expedientes y la utilidad de los controles. El comité ajusta el diseño antes de extenderlo.",
+        "La salida del piloto requiere expedientes revisados, evidencia accesible, responsables ratificados y una decisión documentada sobre los cambios al proceso. El tamaño de la muestra y los umbrales se acuerdan antes de comenzar."
+      ],
+      "bullets": [],
+      "source_ids": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "H01",
+      "statement": "El diseño requiere un expediente común que conecte contratación, datos y uso de IA.",
+      "kind": "recommendation",
+      "source_ids": [],
+      "implication": "La aprobación debe poder rastrearse hasta el riesgo, el responsable y la evidencia esperada."
+    },
+    {
+      "id": "H02",
+      "statement": "No se dispone de un inventario ni de una línea base de expedientes del cliente.",
+      "kind": "assumption",
+      "source_ids": [],
+      "implication": "Los indicadores permanecen sin resultado hasta capturar mediciones válidas."
+    }
+  ],
+  "risks": [
+    {
+      "id": "R01",
+      "title": "Uso de datos fuera de propósito",
+      "cause": "Alcance contractual o técnico impreciso",
+      "consequence": "Exposición o reutilización no prevista de datos",
+      "owner": "Dueño del dato",
+      "probability": null,
+      "impact": null,
+      "source_ids": []
+    },
+    {
+      "id": "R02",
+      "title": "Resultados de IA sin evaluación",
+      "cause": "Ausencia de pruebas antes de uso y de supervisión definida",
+      "consequence": "Decisiones incorrectas o trato inadecuado a personas afectadas",
+      "owner": "Responsable de IA",
+      "probability": null,
+      "impact": null,
+      "source_ids": []
+    },
+    {
+      "id": "R03",
+      "title": "Cambios del proveedor sin revisión",
+      "cause": "No existe una condición de reevaluación",
+      "consequence": "Controles que dejan de cubrir el servicio real",
+      "owner": "Compras",
+      "probability": null,
+      "impact": null,
+      "source_ids": []
+    }
+  ],
+  "controls": [
+    {
+      "id": "C01",
+      "risk_ids": [
+        "R01"
+      ],
+      "activity": "Validar propósito y condiciones de tratamiento",
+      "owner": "Dueño del dato",
+      "frequency": "Antes del alta y ante cambios materiales",
+      "evidence": "Expediente y condiciones de tratamiento aprobados",
+      "acceptance": "Cada categoría de datos tiene propósito, acceso y conservación definidos",
+      "status": "Propuesto"
+    },
+    {
+      "id": "C02",
+      "risk_ids": [
+        "R02"
+      ],
+      "activity": "Evaluar el sistema y definir supervisión humana",
+      "owner": "Responsable de IA",
+      "frequency": "Antes del uso y según el riesgo del caso",
+      "evidence": "Resultados de pruebas y protocolo de intervención",
+      "acceptance": "Criterios de desempeño y rutas de escalamiento aprobados antes de uso",
+      "status": "Propuesto"
+    },
+    {
+      "id": "C03",
+      "risk_ids": [
+        "R03"
+      ],
+      "activity": "Reevaluar cambios de servicio y renovaciones",
+      "owner": "Compras",
+      "frequency": "Ante cambio material o renovación",
+      "evidence": "Notificación de cambio y decisión de reevaluación",
+      "acceptance": "Todo cambio material tiene decisión registrada antes de su adopción",
+      "status": "Propuesto"
+    }
+  ],
+  "actions": [
+    {
+      "id": "A01",
+      "control_ids": [
+        "C01"
+      ],
+      "action": "Acordar el expediente mínimo y ratificar al dueño del dato",
+      "owner": "Oficina de datos",
+      "horizon": "Primer mes propuesto",
+      "acceptance": "Formato y responsables aprobados",
+      "status": "Pendiente"
+    },
+    {
+      "id": "A02",
+      "control_ids": [
+        "C02"
+      ],
+      "action": "Definir pruebas y supervisión por caso de uso",
+      "owner": "Responsable de IA",
+      "horizon": "Segundo mes propuesto",
+      "acceptance": "Protocolo de evaluación aprobado y aplicado en el piloto",
+      "status": "Pendiente"
+    },
+    {
+      "id": "A03",
+      "control_ids": [
+        "C03"
+      ],
+      "action": "Incorporar reevaluación en contratación y renovación",
+      "owner": "Compras",
+      "horizon": "Tercer mes propuesto",
+      "acceptance": "El piloto registra una ruta de cambio y una decisión de renovación",
+      "status": "Pendiente"
+    }
+  ],
+  "kpis": [
+    {
+      "id": "K01",
+      "name": "Expedientes completos",
+      "definition": "Expedientes con todos los campos y evidencias obligatorios entre expedientes revisados en el período.",
+      "numerator": null,
+      "denominator": null,
+      "target": null,
+      "unit": "ratio",
+      "owner": "Compras",
+      "source_ids": []
+    },
+    {
+      "id": "K02",
+      "name": "Usos de IA evaluados",
+      "definition": "Usos con evaluación previa aprobada entre usos de IA sujetos a revisión en el período.",
+      "numerator": null,
+      "denominator": null,
+      "target": null,
+      "unit": "ratio",
+      "owner": "Responsable de IA",
+      "source_ids": []
+    }
+  ],
+  "process": null,
+  "slides": [
+    {
+      "layout": "metrics",
+      "title": "Calidad de datos por dominio",
+      "message": "Los valores del ejemplo son ficticios. La gráfica y el dashboard comparten los mismos datos.",
+      "items": [],
+      "source_ids": [],
+      "notes": "El Excel conserva los valores en blanco hasta capturar numerador y denominador.",
+      "dataset_id": "calidad",
+      "chart": "bar"
+    }
+  ],
+  "source_ids": [],
+  "workbook": {
+    "datasets": [
+      {
+        "id": "calidad",
+        "name": "Calidad por dominio",
+        "columns": [
+          {
+            "key": "dominio",
+            "label": "Dominio",
+            "kind": "text"
+          },
+          {
+            "key": "validos",
+            "label": "Registros válidos",
+            "kind": "number"
+          },
+          {
+            "key": "total",
+            "label": "Registros revisados",
+            "kind": "number"
+          }
+        ],
+        "rows": [
+          {
+            "values": [
+              "Proveedores",
+              80.0,
+              100.0
+            ]
+          },
+          {
+            "values": [
+              "Clientes",
+              135.0,
+              150.0
+            ]
+          },
+          {
+            "values": [
+              "Productos",
+              70.0,
+              100.0
+            ]
+          }
+        ],
+        "source_ids": [],
+        "note": "Todos los valores son ficticios para demostrar fórmulas y gráficas."
+      }
+    ],
+    "metrics": [
+      {
+        "label": "Registros revisados",
+        "dataset_id": "calidad",
+        "operation": "sum",
+        "column": "total",
+        "denominator_column": null,
+        "equals": null,
+        "unit": "number"
+      },
+      {
+        "label": "Registros válidos",
+        "dataset_id": "calidad",
+        "operation": "sum",
+        "column": "validos",
+        "denominator_column": null,
+        "equals": null,
+        "unit": "number"
+      },
+      {
+        "label": "Calidad ponderada",
+        "dataset_id": "calidad",
+        "operation": "ratio_sums",
+        "column": "validos",
+        "denominator_column": "total",
+        "equals": null,
+        "unit": "ratio"
+      }
+    ],
+    "charts": [
+      {
+        "title": "Registros válidos por dominio",
+        "dataset_id": "calidad",
+        "category_column": "dominio",
+        "value_column": "validos",
+        "kind": "bar"
+      }
+    ]
+  }
+}
